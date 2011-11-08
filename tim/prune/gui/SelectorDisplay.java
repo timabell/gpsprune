@@ -149,7 +149,7 @@ public class SelectorDisplay extends GenericDisplay
 		_fileListModel = new FileListModel(_trackInfo.getFileInfo());
 		_fileList = new JList(_fileListModel);
 		_fileListPanel = makeListPanel("details.lists.files", _fileList);
-		//todo: select points in file when file clicked.
+		//TODO: select points in file when file clicked.
 		// don't add file list till files loaded
 		_listsPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
