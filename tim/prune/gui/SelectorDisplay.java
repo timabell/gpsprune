@@ -268,6 +268,9 @@ public class SelectorDisplay extends GenericDisplay
 			_photoListModel.fireChanged();
 			_audioListModel.fireChanged();
 		}
+		if ((inUpdateType | DataSubscriber.DATA_ADDED_OR_REMOVED) > 0) {
+			_fileListModel.fireChanged();
+		}
 		// Deselect selected waypoint if selected point has since changed
 		if (_waypointList.getSelectedIndex() >= 0)
 		{

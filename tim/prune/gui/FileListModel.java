@@ -23,4 +23,10 @@ public class FileListModel extends AbstractListModel {
 		return _fileInfo.getNumFiles();
 	}
 
+	/**
+	 * Fire event to notify that contents have changed
+	 */
+	public void fireChanged() {
+		this.fireContentsChanged(this, 0, getSize()-1);
+	}
 }
