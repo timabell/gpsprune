@@ -148,6 +148,13 @@ public class SelectorDisplay extends GenericDisplay
 		// don't add audio list either
 		_fileListModel = new FileListModel(_trackInfo.getFileInfo());
 		_fileList = new JList(_fileListModel);
+		_fileList.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e)
+			{
+				if (!e.getValueIsAdjusting()) {
+					selectFile(_fileList.getSelectedIndex());
+				}
+			}});
 		_fileListPanel = makeListPanel("details.lists.files", _fileList);
 		//TODO: select points in file when file clicked.
 		// don't add file list till files loaded
@@ -196,6 +203,15 @@ public class SelectorDisplay extends GenericDisplay
 	private void selectAudio(int inIndex)
 	{
 		_trackInfo.selectAudio(inIndex);
+	}
+
+	/**
+	 * Select the specified file
+	 * @param inIndex index of selected file
+	 */
+	private void selectFile(int inIndex)
+	{
+		_trackInfo.selectFile(inIndex);
 	}
 
 	/**

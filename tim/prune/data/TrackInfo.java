@@ -507,6 +507,13 @@ public class TrackInfo
 	}
 
 
+	public void selectFile(int inIndex) {
+		SourceInfo source = _fileInfo.getSource(inIndex);
+		//source.
+		//TODO: select the relevant points. I don't think there's currently a link between the points and their source
+	}
+
+
 	/**
 	 * Extend the current selection to end at the given point, eg by shift-clicking
 	 * @param inPointNum index of end point
