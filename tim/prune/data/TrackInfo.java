@@ -509,8 +509,8 @@ public class TrackInfo
 
 	public void selectFile(int inIndex) {
 		SourceInfo source = _fileInfo.getSource(inIndex);
-		//source.
-		//TODO: select the relevant points. I don't think there's currently a link between the points and their source
+		selectPoint(source.getPoint(0));
+		extendSelection(_track.getPointIndex(source.getPoint(source.getNumPoints()-1))); // select the last point in the file
 	}
 
 

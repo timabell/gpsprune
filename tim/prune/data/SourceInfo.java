@@ -129,4 +129,10 @@ public class SourceInfo
 		if (_pointIndices == null) {return idx;} // All points loaded
 		return _pointIndices[idx]; // use point index mapping
 	}
+
+	public DataPoint getPoint(int inIndex)
+	{
+		return _points[inIndex];
+		//TODO: support _pointIndices mapping
+	}
 }
