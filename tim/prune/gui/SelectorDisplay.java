@@ -53,6 +53,10 @@ public class SelectorDisplay extends GenericDisplay
 	private JPanel _audioListPanel = null;
 	private JList _audioList = null;
 	private MediaListModel _audioListModel = null;
+	// Data files
+	private JList _fileList = null;
+	private JPanel _fileListPanel = null;
+	private FileListModel _fileListModel;
 
 	// scrollbar interval
 	private static final int SCROLLBAR_INTERVAL = 50;
@@ -99,7 +103,7 @@ public class SelectorDisplay extends GenericDisplay
 		});
 		_scroller.setEnabled(false);
 
-		// Add panel for waypoints / photos
+		// Add panel for waypoints / photos / audio /files
 		_listsPanel = new JPanel();
 		_listsPanel.setLayout(new GridLayout(0, 1));
 		_listsPanel.setBorder(BorderFactory.createCompoundBorder(
@@ -142,6 +146,11 @@ public class SelectorDisplay extends GenericDisplay
 			}});
 		_audioListPanel = makeListPanel("details.lists.audio", _audioList);
 		// don't add audio list either
+		_fileListModel = new FileListModel(_trackInfo.getFileInfo());
+		_fileList = new JList(_fileListModel);
+		_fileListPanel = makeListPanel("details.lists.files", _fileList);
+		//todo: select points in file when file clicked.
+		// don't add file list till files loaded
 		_listsPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 		// add the controls to the main panel
@@ -271,7 +280,7 @@ public class SelectorDisplay extends GenericDisplay
 			}
 		}
 		// Hide photo list if no photos loaded, same for audio
-		redrawLists(_photoListModel.getSize() > 0, _audioListModel.getSize() > 0);
+		redrawLists(_photoListModel.getSize() > 0, _audioListModel.getSize() > 0, _fileListModel.getSize() > 0);
 
 		// Make sure correct photo is selected
 		if (_photoListModel.getSize() > 0)
@@ -327,11 +336,12 @@ public class SelectorDisplay extends GenericDisplay
 	 * Redraw the list panels in the display according to which ones should be shown
 	 * @param inShowPhotos true to show photo list
 	 * @param inShowAudio true to show audio list
+	 * @param inShowFiles true to show file list
 	 */
-	private void redrawLists(boolean inShowPhotos, boolean inShowAudio)
+	private void redrawLists(boolean inShowPhotos, boolean inShowAudio, boolean inShowFiles)
 	{
 		// exit if same as last time
-		int panels = 1 + (inShowPhotos?2:0) + (inShowAudio?4:0);
+		int panels = 1 + (inShowPhotos?2:0) + (inShowAudio?4:0) + (inShowFiles?8:0);
 		if (panels == _visiblePanels) return;
 		_visiblePanels = panels;
 		// remove all panels and re-add them
@@ -343,6 +353,9 @@ public class SelectorDisplay extends GenericDisplay
 		}
 		if (inShowAudio) {
 			_listsPanel.add(_audioListPanel);
+		}
+		if (inShowFiles) {
+			_listsPanel.add(_fileListPanel);
 		}
 		_listsPanel.invalidate();
 		_listsPanel.getParent().validate();
