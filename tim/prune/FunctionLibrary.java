@@ -16,8 +16,6 @@ import tim.prune.load.BabelLoadFromGps;
 import tim.prune.save.GpsSaver;
 import tim.prune.save.GpxExporter;
 import tim.prune.save.KmlExporter;
-import tim.prune.save.PovExporter;
-import tim.prune.save.SvgExporter;
 
 /**
  * Class to provide access to functions
@@ -26,8 +24,6 @@ public abstract class FunctionLibrary
 {
 	public static GenericFunction FUNCTION_GPXEXPORT = null;
 	public static GenericFunction FUNCTION_KMLEXPORT = null;
-	public static PovExporter FUNCTION_POVEXPORT     = null;
-	public static SvgExporter FUNCTION_SVGEXPORT     = null;
 	public static GenericFunction FUNCTION_GPSLOAD  = null;
 	public static GenericFunction FUNCTION_GPSSAVE  = null;
 	public static GenericFunction FUNCTION_IMPORTBABEL = null;
@@ -88,8 +84,6 @@ public abstract class FunctionLibrary
 	{
 		FUNCTION_GPXEXPORT = new GpxExporter(inApp);
 		FUNCTION_KMLEXPORT = new KmlExporter(inApp);
-		FUNCTION_POVEXPORT = new PovExporter(inApp);
-		FUNCTION_SVGEXPORT = new SvgExporter(inApp);
 		FUNCTION_GPSLOAD   = new BabelLoadFromGps(inApp);
 		FUNCTION_GPSSAVE   = new GpsSaver(inApp);
 		FUNCTION_IMPORTBABEL = new BabelLoadFromFile(inApp);
@@ -118,7 +112,6 @@ public abstract class FunctionLibrary
 		FUNCTION_PHOTO_POPUP = new PhotoPopupFunction(inApp);
 		FUNCTION_IGNORE_EXIF_THUMB = new IgnoreExifThumb(inApp);
 		FUNCTION_CHARTS = new Charter(inApp);
-		FUNCTION_3D     = new ShowThreeDFunction(inApp);
 		FUNCTION_DISTANCES = new DistanceFunction(inApp);
 		FUNCTION_FULL_RANGE_DETAILS = new FullRangeDetails(inApp);
 		FUNCTION_GET_GPSIES = new GetGpsiesFunction(inApp);

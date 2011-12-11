@@ -35,7 +35,6 @@ import tim.prune.GenericFunction;
 import tim.prune.GpsPrune;
 import tim.prune.I18nManager;
 import tim.prune.jpeg.ExifGateway;
-import tim.prune.threedee.WindowFactory;
 
 /**
  * Class to represent the "About" popup window
@@ -376,7 +375,7 @@ public class AboutScreen extends GenericFunction
 	{
 		String yesText = I18nManager.getText("dialog.about.yes");
 		String noText = I18nManager.getText("dialog.about.no");
-		_installedLabels[0].setText(WindowFactory.isJava3dEnabled()?yesText:noText);
+		_installedLabels[0].setText(noText);
 		final int[] tools = {ExternalTools.TOOL_EXIFTOOL, ExternalTools.TOOL_GPSBABEL, ExternalTools.TOOL_GNUPLOT};
 		for (int i=0; i<tools.length; i++) {
 			_installedLabels[i+1].setText(ExternalTools.isToolInstalled(tools[i])?yesText:noText);

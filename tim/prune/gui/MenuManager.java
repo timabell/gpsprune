@@ -209,12 +209,6 @@ public class MenuManager implements DataSubscriber
 		// Gpx
 		_exportGpxItem = makeMenuItem(FunctionLibrary.FUNCTION_GPXEXPORT, false);
 		fileMenu.add(_exportGpxItem);
-		// Pov
-		_exportPovItem = makeMenuItem(FunctionLibrary.FUNCTION_POVEXPORT, false);
-		fileMenu.add(_exportPovItem);
-		// Svg
-		_exportSvgItem = makeMenuItem(FunctionLibrary.FUNCTION_SVGEXPORT, false);
-		fileMenu.add(_exportSvgItem);
 		fileMenu.addSeparator();
 		JMenuItem exitMenuItem = new JMenuItem(I18nManager.getText("menu.file.exit"));
 		exitMenuItem.addActionListener(new ActionListener() {
@@ -463,9 +457,6 @@ public class MenuManager implements DataSubscriber
 		});
 		sidebarsCheckbox.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0)); // shortcut F11
 		viewMenu.add(sidebarsCheckbox);
-		// 3d
-		_show3dItem = makeMenuItem(FunctionLibrary.FUNCTION_3D, false);
-		viewMenu.add(_show3dItem);
 		// browser submenu
 		_browserMapMenu = new JMenu(I18nManager.getText("menu.view.browser"));
 		_browserMapMenu.setEnabled(false);
