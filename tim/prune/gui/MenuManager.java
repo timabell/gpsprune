@@ -45,8 +45,6 @@ public class MenuManager implements DataSubscriber
 	private JMenuItem _saveItem = null;
 	private JMenuItem _exportKmlItem = null;
 	private JMenuItem _exportGpxItem = null;
-	private JMenuItem _exportPovItem = null;
-	private JMenuItem _exportSvgItem = null;
 	private JMenu     _recentFileMenu = null;
 	private JMenuItem _undoItem = null;
 	private JMenuItem _clearUndoItem = null;
@@ -809,14 +807,11 @@ public class MenuManager implements DataSubscriber
 		_saveButton.setEnabled(hasData);
 		_exportKmlItem.setEnabled(hasData);
 		_exportGpxItem.setEnabled(hasData);
-		_exportPovItem.setEnabled(hasData);
-		_exportSvgItem.setEnabled(hasData);
 		_compressItem.setEnabled(hasData);
 		_deleteMarkedPointsItem.setEnabled(hasData && _track.hasMarkedPoints());
 		_rearrangeMenu.setEnabled(hasData && _track.hasTrackPoints() && _track.hasWaypoints());
 		_selectAllItem.setEnabled(hasData);
 		_selectNoneItem.setEnabled(hasData);
-		_show3dItem.setEnabled(hasData);
 		_chartItem.setEnabled(hasData);
 		_browserMapMenu.setEnabled(hasData);
 		_distanceItem.setEnabled(hasData);
