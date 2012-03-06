@@ -1,3 +1,4 @@
 *.class
 doc
 dist
+build

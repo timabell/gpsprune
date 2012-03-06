@@ -8,7 +8,7 @@
                 <attribute name="Main-Class" value="tim.prune.GpsPrune"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="prune"/>
+            <fileset dir="build"/>
         </jar>
     </target>
 </project>
